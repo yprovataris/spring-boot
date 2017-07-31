@@ -16,8 +16,10 @@
 
 package sample.simple.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import sample.simple.SampleConfigurationProperties;
 
 @Component
 public class HelloWorldService {
@@ -25,8 +27,11 @@ public class HelloWorldService {
 	@Value("${name:World}")
 	private String name;
 
+	@Autowired
+	private SampleConfigurationProperties sampleConfigurationProperties;
+
 	public String getHelloMessage() {
-		return "Hello " + this.name;
+		return "Hello " + sampleConfigurationProperties.getName();
 	}
 
 }
