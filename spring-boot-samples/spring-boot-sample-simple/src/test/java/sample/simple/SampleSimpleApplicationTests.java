@@ -57,7 +57,7 @@ public class SampleSimpleApplicationTests {
 	public void testDefaultSettings() throws Exception {
 		SampleSimpleApplication.main(new String[0]);
 		String output = this.outputCapture.toString();
-		assertThat(output).contains("Hello Phil");
+		assertThat(output).contains("Hello Andy");
 		assertThat(output).contains("The @ConfigurationProperties bean class "
 				+ "sample.simple.SampleConfigurationProperties contains "
 				+ "validation constraints but had not been annotated "
@@ -66,7 +66,7 @@ public class SampleSimpleApplicationTests {
 
 	@Test
 	public void testCommandLineOverrides() throws Exception {
-		SampleSimpleApplication.main(new String[] { "--name=Gordon" });
+		SampleSimpleApplication.main(new String[] { "--sample.name=Gordon" });
 		String output = this.outputCapture.toString();
 		assertThat(output).contains("Hello Gordon");
 	}
